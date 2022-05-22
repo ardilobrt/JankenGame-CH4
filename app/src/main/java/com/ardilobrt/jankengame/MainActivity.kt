@@ -3,7 +3,6 @@ package com.ardilobrt.jankengame
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
@@ -19,7 +18,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var viewResult: ImageView
     private lateinit var textRefresh: TextView
     private lateinit var logPlayer: String
-    private lateinit var toastResult: Toast
 
     private val player1 = Player("Player 1")
     private val player2 = Player("Player 2")
@@ -37,11 +35,15 @@ class MainActivity : AppCompatActivity() {
         handScissor2 = findViewById(R.id.iv_scissor_p2)
         viewResult = findViewById(R.id.iv_result)
         textRefresh = findViewById(R.id.tv_message)
+        val ivRefresh = findViewById<ImageView>(R.id.iv_refresh)
 
         setOnClick(handRock1, 1)
         setOnClick(handPaper1, 2)
         setOnClick(handScissor1, 3)
-        clearView()
+
+        ivRefresh.setOnClickListener {
+            clearView()
+        }
     }
 
     private fun setOnClick(view: ImageView, idView: Int) {
@@ -126,8 +128,7 @@ class MainActivity : AppCompatActivity() {
         val getTextResult = controller.showWinner(result)
         viewResult.setImageResource(setImageResult(result))
         textRefresh.text = resources.getText(R.string.refresh_game)
-        toastResult = Toast.makeText(this, getTextResult, Toast.LENGTH_SHORT)
-        toastResult.show()
+        Toast.makeText(this, getTextResult, Toast.LENGTH_SHORT).show()
         logD("Result = $getTextResult")
     }
 
@@ -144,17 +145,12 @@ class MainActivity : AppCompatActivity() {
 
     private fun clearView() {
 
-        val btnRefresh = findViewById<ImageButton>(R.id.btn_refresh)
-        btnRefresh.setOnClickListener {
-
-            isHandEnabled(true)
-            viewResult.setImageResource(setImageResult(3))
-            textRefresh.text = resources.getText(R.string.input_hand)
-            clearViewPlayer1()
-            clearViewPlayer2()
-            toastResult.cancel()
-            logD("Button Refresh Clicked")
-        }
+        isHandEnabled(true)
+        viewResult.setImageResource(setImageResult(3))
+        textRefresh.text = resources.getText(R.string.input_hand)
+        clearViewPlayer1()
+        clearViewPlayer2()
+        logD("Button Refresh Clicked")
     }
 
     private fun clearViewPlayer1() {
