@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="text_info" parent="Theme.JankenGame">
+        <item name="android:text">@string/input_hand</item>
+        <item name="android:textSize">14sp</item>
+        <item name="fontFamily">@font/nunitoextrabold</item>
+        <item name="android:textColor">#A668B0</item>
+    </style>
+
+    <style name="linear_size" parent="Theme.JankenGame">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">24dp</item>
+    </style>
+
+    <style name="hand_size" parent="Theme.JankenGame">
+        <item name="android:layout_width">80dp</item>
+        <item name="android:layout_height">80dp</item>
+    </style>
+</resources>
