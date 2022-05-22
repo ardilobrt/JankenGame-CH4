@@ -1,4 +1,4 @@
-# JankenGame
+# Janken Game
 <b>Japanese suit game (rock-paper-scissor) in Android Mobile Apps</b> </p>
 Version 1.0 (Player 1 Vs COM)</br>
 When Player 1 pick hand, COM will set random hand.</p>
