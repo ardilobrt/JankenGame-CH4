@@ -1,6 +1,6 @@
 package com.ardilobrt.jankengame
 
-
+// kalau class tanpa constructor, tanda kurungnya bisa di hapus
 class Controller() {
 
     private val draw = 0
