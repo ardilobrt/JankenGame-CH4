@@ -6,6 +6,7 @@ import android.util.Log
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 
 class MainActivity : AppCompatActivity() {
 
@@ -24,6 +25,11 @@ class MainActivity : AppCompatActivity() {
     private val controller = Controller()
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
+        // Make splash screen w/o layout & activity
+        // https://developer.android.com/guide/topics/ui/splash-screen/migrate
+        installSplashScreen()
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
@@ -130,7 +136,8 @@ class MainActivity : AppCompatActivity() {
 
         val getTextResult = controller.showWinner(result)
         viewResult.setImageResource(setImageResult(result))
-        textRefresh.text = resources.getText(R.string.refresh_game) // +1 string udah di extract, memudahkan translate
+        textRefresh.text =
+            resources.getText(R.string.refresh_game) // +1 string udah di extract, memudahkan translate
         Toast.makeText(this, getTextResult, Toast.LENGTH_SHORT).show()
         logD("Result = $getTextResult")
     }

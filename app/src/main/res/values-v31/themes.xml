@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Theme.App.Starting" parent="Theme.SplashScreen">
+    <style name="Theme.App.Starting" parent="Theme.JankenGame">
         // Set the splash screen background, animated icon, and animation duration.
         <item name="windowSplashScreenBackground">@color/brown_light</item>
 
