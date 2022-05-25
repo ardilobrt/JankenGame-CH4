@@ -53,14 +53,14 @@ class MainActivity : AppCompatActivity() {
         // dengan di bikin central di 1 method, codingan lebih rapi dan mudah di baca
         view.setOnClickListener {
 
-            isHandEnabled(false)
+            setHandEnable(false)
             setPlayer1(view, idView)
             setPlayer2()
             startGame()
         }
     }
 
-    private fun isHandEnabled(enable: Boolean) {
+    private fun setHandEnable(enable: Boolean) {
         // plus point buat disable viewnya, tp lebih bagus kalau namanya diganti setHandEnabled()
         handRock1.isEnabled = enable
         handPaper1.isEnabled = enable
@@ -112,7 +112,7 @@ class MainActivity : AppCompatActivity() {
         val handPlayer1 = player1.hand
         val idPlayer2 = player2.handId
         val handPlayer2 = player2.hand
-        val resultGame = controller.gameRule(idPlayer1, idPlayer2)
+        val resultGame = controller.ruleGame(idPlayer1, idPlayer2)
 
         logD("Start Game = $handPlayer1 VS $handPlayer2")
         if (idPlayer1 == resultGame) {
@@ -148,7 +148,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun clearView() {
 
-        isHandEnabled(true)
+        setHandEnable(true)
         viewResult.setImageResource(setImageResult(3))
         textRefresh.text = resources.getText(R.string.input_hand)
         clearViewPlayer1()
