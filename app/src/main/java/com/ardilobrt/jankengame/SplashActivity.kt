@@ -13,6 +13,7 @@ import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 class SplashActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        // plus point buat implament splash pake API yang baru, next mungkin bisa pake splash yang tanpa activity
         val splashScreen = installSplashScreen()
         super.onCreate(savedInstanceState)
 
