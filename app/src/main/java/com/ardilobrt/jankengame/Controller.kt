@@ -1,14 +1,14 @@
 package com.ardilobrt.jankengame
 
 // kalau class tanpa constructor, tanda kurungnya bisa di hapus
-class Controller() {
+class Controller {
 
     private val draw = 0
     private val rock = 1
     private val paper = 2
     private val scissor = 3
 
-    fun gameRule(hand1: Int, hand2: Int): Int {
+    fun ruleGame(hand1: Int, hand2: Int): Int {
 
         val result = when {
             hand1 == rock && hand2 == paper || hand1 == paper && hand2 == rock -> paper
